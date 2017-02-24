@@ -39,8 +39,7 @@ const packager  = () => {
         console.log(err)
         return
       }
-      const dependencies = getDependencies(dirs)
-      const packages = getPackages(dependencies, dirs)
+      const packages = getPackages(getDependencies(dirs), dirs)
       packages.forEach((dir, index) => {
         if (dir.indexOf('.') !== 0) {
           let packageJsonFile = './node_modules/' + dir + '/package.json'
