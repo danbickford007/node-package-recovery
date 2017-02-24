@@ -16,7 +16,7 @@ file from your `node_modules` directory in such scenario.
 
 `nmp list`
 
-#### create a `package.nmp.json` file
+###### create a `package.nmp.json` file
 
 `nmp write`
 
