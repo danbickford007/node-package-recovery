@@ -1,37 +1,38 @@
 let fs = require('fs'),
     _ = require('lodash')
 
-const getDependencies = (dirs) => {
-  const deps = dirs.map((dir, index) => {
+const fullDeps = (dirs) => {
+  return dirs.map((dir, index) => {
     if (dir.indexOf('.') !== 0) {
       let packageJsonFile = './node_modules/' + dir + '/package.json'
       if (fs.existsSync(packageJsonFile)) {
-        let data = fs.readFileSync(packageJsonFile)
-        let json = JSON.parse(data)
-        return Object.keys(json.dependencies)
+        return JSON.parse(fs.readFileSync(packageJsonFile))
       }
     }
   })
-  return [].concat.apply([], deps)
+}
+
+const getDependencies = (dirs) => {
+  let json = fullDeps(dirs).map((item, index) => {
+    if (item) {
+      return Object.keys(item.dependencies)
+    }
+  })
+  return [].concat.apply([], json)
 }
 
 const getPackages = (dependencies, dirs) => {
-  const deps = dirs.map((dir, index) => {
-    if (dir.indexOf('.') !== 0) {
-      let packageJsonFile = './node_modules/' + dir + '/package.json'
-      if (fs.existsSync(packageJsonFile)) {
-        let data = fs.readFileSync(packageJsonFile)
-        let json = JSON.parse(data)
-        if (dependencies.indexOf(json.name) < 0) {
-          return json.name
-        }
+  const deps = dirs.map((item) => {
+    if (item) {
+      if (dependencies.indexOf(item) < 0) {
+        return item
       }
     }
   })
   return _.without(deps, undefined)
 }
 
-const packager  = () => {
+const packager = () => {
   let finalData = ''
   return new Promise((resolve, reject) => {
     fs.readdir('./node_modules', (err, dirs) => {
