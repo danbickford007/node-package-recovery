@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-let lister = require('./lister')
-let Write = require('./write')
+const lister = require('./lister')
+const Write = require('./write')
 
 console.log('Checking node_modules: ')
 

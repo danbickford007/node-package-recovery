@@ -5,6 +5,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var fs = require('fs');
+var packager = require('./packager');
 
 var Write = function () {
   function Write() {
@@ -18,31 +19,8 @@ var Write = function () {
     value: function start() {
       var _this = this;
 
-      new Promise(function (resolve, reject) {
-        fs.readdir('./node_modules', function (err, dirs) {
-          if (err) {
-            console.log(err);
-            return;
-          }
-          dirs.forEach(function (dir, index) {
-            if (dir.indexOf('.') !== 0) {
-              var packageJsonFile = './node_modules/' + dir + '/package.json';
-              if (fs.existsSync(packageJsonFile)) {
-                var data = fs.readFileSync(packageJsonFile);
-                if (err) {
-                  console.log(err);
-                } else {
-                  var json = JSON.parse(data);
-                  var comma = index < dirs.length - 1 ? ', \n' : '\n';
-                  _this.data = _this.data + ('    "' + json.name + '": ' + json.version + comma);
-                }
-              }
-            }
-          });
-          resolve();
-        });
-      }).then(function () {
-        _this.write();
+      packager().then(function (data) {
+        _this.write(data);
       });
     }
   }, {
@@ -52,14 +30,14 @@ var Write = function () {
     }
   }, {
     key: 'write',
-    value: function write() {
-      var content = this.organizeFile(this.data);
+    value: function write(data) {
+      var content = this.organizeFile(data);
       fs.writeFile('package.smp.json', content, function (err) {
         if (err) {
           return console.log(err);
         }
 
-        console.log('The file was saved!');
+        console.log('package.smp.json was saved!');
       });
     }
   }]);
