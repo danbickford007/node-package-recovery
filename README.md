@@ -1,19 +1,24 @@
-#### nmp
+## nmp
 
-This is used if you need to generate a `package.json` file from your `node_modules` directory.
+Did you `npm install someModule` without the `--save` or didn't commit your new app to git 
+and accidently removed the `package.json` file? This tool is used to generate a `package.json` 
+file from your `node_modules` directory in such scenario.
 
-To run:
+#### Install:
+
+`git clone git@github.com:danbickford007/node_module_recovery.git`
+`cd node_module_recovery && grunt package`
+
+#### Usage :
+
+###### list all modules and versions
 
 `nmp list`
 
-list all modules and versions
+#### create a `package.nmp.json` file
 
 `nmp write`
-
-create a `package.nmp.json` file
 
 ##### Dev
 
 Install: `grunt package`
-
-
