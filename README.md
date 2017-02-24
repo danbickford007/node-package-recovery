@@ -23,3 +23,7 @@ file from your `node_modules` directory in such scenario.
 ##### Dev
 
 Install: `grunt package`
+
+###### Test
+
+`./node_modules/mocha/bin/mocha test/ --use_strict`
