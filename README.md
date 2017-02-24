@@ -6,6 +6,12 @@ To run:
 
 `nmp list`
 
+list all modules and versions
+
+`nmp write`
+
+create a `package.nmp.json` file
+
 ##### Dev
 
 Install: `npm install -g`

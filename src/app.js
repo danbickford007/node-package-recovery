@@ -19,4 +19,5 @@ switch (command) {
     console.log('Help:')
     console.log('available commands:')
     console.log('list = list all node modules')
+    console.log('write = write a package.nmp.json file')
 }
