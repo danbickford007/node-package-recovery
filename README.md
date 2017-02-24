@@ -8,6 +8,6 @@ To run:
 
 ##### Dev
 
-Install: `npm install -g`
+Install: `grunt package`
 
 
