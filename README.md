@@ -14,6 +14,6 @@ create a `package.nmp.json` file
 
 ##### Dev
 
-Install: `npm install -g`
+Install: `grunt package`
 
 
