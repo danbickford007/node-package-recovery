@@ -1,3 +1,5 @@
+"use strict"
+
 let lister = require('./../src/lister'),
   chai = require('chai'),
   sinonChai = require('sinon-chai'),
@@ -6,7 +8,7 @@ let lister = require('./../src/lister'),
 chai.use(sinonChai)
 
 describe('lister', () => {
-  describe('listing availble modules', () => {
+  describe('listing available modules', () => {
     it('calls console.log', () => {
       let log = sinon.spy(console, 'log')
       lister()

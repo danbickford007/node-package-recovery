@@ -1,3 +1,5 @@
+"use strict"
+
 let packager = require('./../src/packager'),
   chai = require('chai'),
   expect = chai.expect,
@@ -9,11 +11,23 @@ chai.use(sinonChai)
 describe('packager', () => {
   describe('listing availble modules', () => {
     it('returns data', () => {
-      packager().then((data) => {
-        console.log('???????????')
-        console.log(data)
-        expect(data).to.be.true
+      return packager().then((data) => {
+        expect(data).to.be.ok
+      })
+    })
+
+    it('has correct modules', () => {
+      return packager().then((data) => {
+        expect(data).to.equal('    "chai": "3.5.0"\n')
       })
     })
   })
+
+  // describe('fullDeps', () => {
+  //   it('returns data', () => {
+  //     return packager.fullDeps().then((data) => {
+  //       expect(data).to.be.ok
+  //     })
+  //   })
+  // })
 })
