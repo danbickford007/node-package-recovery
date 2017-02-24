@@ -1,8 +1,39 @@
 'use strict';
 
-var fs = require('fs');
+var fs = require('fs'),
+    _ = require('lodash');
 
-module.exports = function () {
+var getDependencies = function getDependencies(dirs) {
+  var deps = dirs.map(function (dir, index) {
+    if (dir.indexOf('.') !== 0) {
+      var packageJsonFile = './node_modules/' + dir + '/package.json';
+      if (fs.existsSync(packageJsonFile)) {
+        var data = fs.readFileSync(packageJsonFile);
+        var json = JSON.parse(data);
+        return Object.keys(json.dependencies);
+      }
+    }
+  });
+  return [].concat.apply([], deps);
+};
+
+var getPackages = function getPackages(dependencies, dirs) {
+  var deps = dirs.map(function (dir, index) {
+    if (dir.indexOf('.') !== 0) {
+      var packageJsonFile = './node_modules/' + dir + '/package.json';
+      if (fs.existsSync(packageJsonFile)) {
+        var data = fs.readFileSync(packageJsonFile);
+        var json = JSON.parse(data);
+        if (dependencies.indexOf(json.name) < 0) {
+          return json.name;
+        }
+      }
+    }
+  });
+  return _.without(deps, undefined);
+};
+
+var packager = function packager() {
   var finalData = '';
   return new Promise(function (resolve, reject) {
     fs.readdir('./node_modules', function (err, dirs) {
@@ -10,7 +41,9 @@ module.exports = function () {
         console.log(err);
         return;
       }
-      dirs.forEach(function (dir, index) {
+      var dependencies = getDependencies(dirs);
+      var packages = getPackages(dependencies, dirs);
+      packages.forEach(function (dir, index) {
         if (dir.indexOf('.') !== 0) {
           var packageJsonFile = './node_modules/' + dir + '/package.json';
           if (fs.existsSync(packageJsonFile)) {
@@ -19,7 +52,7 @@ module.exports = function () {
               console.log(err);
             } else {
               var json = JSON.parse(data);
-              var comma = index < dirs.length - 1 ? '", \n' : '"\n';
+              var comma = index < packages.length - 1 ? '", \n' : '"\n';
               finalData = finalData + ('    "' + json.name + '": "' + json.version + comma);
             }
           }
@@ -29,4 +62,6 @@ module.exports = function () {
     });
   });
 };
+
+module.exports = packager;
 //# sourceMappingURL=packager.js.map

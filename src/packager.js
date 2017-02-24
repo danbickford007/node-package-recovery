@@ -1,6 +1,37 @@
-let fs = require('fs')
+let fs = require('fs'),
+    _ = require('lodash')
 
-module.exports = () => {
+const getDependencies = (dirs) => {
+  const deps = dirs.map((dir, index) => {
+    if (dir.indexOf('.') !== 0) {
+      let packageJsonFile = './node_modules/' + dir + '/package.json'
+      if (fs.existsSync(packageJsonFile)) {
+        let data = fs.readFileSync(packageJsonFile)
+        let json = JSON.parse(data)
+        return Object.keys(json.dependencies)
+      }
+    }
+  })
+  return [].concat.apply([], deps)
+}
+
+const getPackages = (dependencies, dirs) => {
+  const deps = dirs.map((dir, index) => {
+    if (dir.indexOf('.') !== 0) {
+      let packageJsonFile = './node_modules/' + dir + '/package.json'
+      if (fs.existsSync(packageJsonFile)) {
+        let data = fs.readFileSync(packageJsonFile)
+        let json = JSON.parse(data)
+        if (dependencies.indexOf(json.name) < 0) {
+          return json.name
+        }
+      }
+    }
+  })
+  return _.without(deps, undefined)
+}
+
+const packager  = () => {
   let finalData = ''
   return new Promise((resolve, reject) => {
     fs.readdir('./node_modules', (err, dirs) => {
@@ -8,7 +39,9 @@ module.exports = () => {
         console.log(err)
         return
       }
-      dirs.forEach((dir, index) => {
+      const dependencies = getDependencies(dirs)
+      const packages = getPackages(dependencies, dirs)
+      packages.forEach((dir, index) => {
         if (dir.indexOf('.') !== 0) {
           let packageJsonFile = './node_modules/' + dir + '/package.json'
           if (fs.existsSync(packageJsonFile)) {
@@ -17,7 +50,7 @@ module.exports = () => {
               console.log(err)
             } else {
               let json = JSON.parse(data)
-              let comma = index < dirs.length - 1 ? '", \n' : '"\n'
+              let comma = index < packages.length - 1 ? '", \n' : '"\n'
               finalData = finalData + `    "${json.name}": "${json.version}${comma}`
             }
           }
@@ -27,3 +60,5 @@ module.exports = () => {
     })
   })
 }
+
+module.exports = packager
