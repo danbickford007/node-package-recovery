@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 
-var filer = require('./filer');
+var lister = require('./lister');
+var Write = require('./write');
 
 console.log('Checking node_modules: ');
 
@@ -9,7 +10,11 @@ var command = process.argv[2];
 
 switch (command) {
   case 'list':
-    filer();
+    lister();
+    break;
+  case 'write':
+    var write = new Write();
+    write.start();
     break;
   default:
     console.log('Help:');

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-let filer = require('./filer')
+let lister = require('./lister')
+let Write = require('./write')
 
 console.log('Checking node_modules: ')
 
@@ -8,7 +9,11 @@ let command = process.argv[2]
 
 switch (command) {
   case 'list':
-    filer()
+    lister()
+    break
+  case 'write':
+    let write = new Write()
+    write.start()
     break
   default:
     console.log('Help:')
