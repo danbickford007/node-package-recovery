@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "node_module_packager",
   "dependencies":{
     "abbrev": "1.1.0", 
     "ansi-regex": "2.1.1", 

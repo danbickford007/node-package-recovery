@@ -26,7 +26,7 @@ var Write = function () {
   }, {
     key: 'organizeFile',
     value: function organizeFile(data) {
-      return '{\n  "name": "",\n  "dependencies":{\n' + data + '  }\n}';
+      return '{\n  "name": "' + process.cwd().split('/').pop() + '",\n  "dependencies":{\n' + data + '  }\n}';
     }
   }, {
     key: 'write',
