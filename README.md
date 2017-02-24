@@ -7,6 +7,7 @@ file from your `node_modules` directory in such scenario.
 #### Install:
 
 `git clone git@github.com:danbickford007/node_module_recovery.git`
+
 `cd node_module_recovery && grunt package`
 
 #### Usage :
