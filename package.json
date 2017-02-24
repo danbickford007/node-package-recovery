@@ -1,0 +1,24 @@
+{
+  "name": "node_module_packager",
+  "bin": {
+    "nmp": "./dist/app.js"
+  },
+  "dependencies": {
+    "grunt-cli": "^1.2.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.22.0",
+    "grunt": "^1.0.1",
+    "grunt-babel": "^6.0.0",
+    "grunt-exec": "^1.0.1",
+    "load-grunt-tasks": "^3.5.2"
+  },
+  "version": "1.0.0",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
