@@ -1,16 +1,1 @@
-"use strict";
-
-var fullDeps = require('./fullDeps');
-var _ = require('lodash');
-
-var getDependencies = function getDependencies(dirs) {
-  var json = fullDeps(dirs).map(function (item, index) {
-    if (item) {
-      return Object.keys(item.dependencies);
-    }
-  });
-  return _.without([].concat.apply([], json), undefined);
-};
-
-module.exports = getDependencies;
-//# sourceMappingURL=getDependencies.js.map
+"use strict";var fullDeps=require("./fullDeps"),_=require("lodash"),getDependencies=function(a){var b=fullDeps(a).map(function(a,b){if(a)return Object.keys(a.dependencies)});return _.without([].concat.apply([],b),void 0)};module.exports=getDependencies;

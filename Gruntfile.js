@@ -1,5 +1,6 @@
 const grunt = require('grunt')
 require('load-grunt-tasks')(grunt)
+grunt.loadNpmTasks('grunt-contrib-uglify')
 
 grunt.initConfig({
   babel: {
@@ -22,8 +23,18 @@ grunt.initConfig({
     package: {
       command: 'npm install -g'
     }
+  },
+  uglify: {
+    target: {
+      files: [{
+        expand: true,
+        cwd: 'dist/',
+        src: '**/*.js',
+        dest: 'dist/'
+      }]
+    }
   }
 })
 
 grunt.registerTask('default', ['babel'])
-grunt.registerTask('package', ['babel', 'exec'])
+grunt.registerTask('package', ['babel', 'uglify', 'exec'])
