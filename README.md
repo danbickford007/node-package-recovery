@@ -19,6 +19,8 @@ file from your `node_modules` directory in such scenario.
 
 #### Install:
 
+Requires node version > 5
+
 ##### NPM
 
 ** Make sure you install with `-g` flag 
