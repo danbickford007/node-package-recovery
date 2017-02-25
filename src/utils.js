@@ -8,11 +8,15 @@ class Utils {
   }
 
   name () {
-    return JSON.parse(fs.readFileSync('package.json')).name
+    return JSON.parse(fs.readFileSync(this.pack())).name
   }
 
   version () {
-    return JSON.parse(fs.readFileSync('package.json')).version
+    return JSON.parse(fs.readFileSync(this.pack())).version
+  }
+
+  pack () {
+    return __dirname.replace('/dist', '') + '/package.json'
   }
 }
 
