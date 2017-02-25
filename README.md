@@ -32,4 +32,4 @@ Install: `grunt package`
 
 Run tests within `tests/` directory
 
-`./../node_modules/mocha/bin/mocha .
+`./../node_modules/mocha/bin/mocha .`
