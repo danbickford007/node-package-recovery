@@ -1,6 +1,7 @@
 "use strict";
 
 var fullDeps = require('./fullDeps');
+var _ = require('lodash');
 
 var getDependencies = function getDependencies(dirs) {
   var json = fullDeps(dirs).map(function (item, index) {
@@ -8,7 +9,7 @@ var getDependencies = function getDependencies(dirs) {
       return Object.keys(item.dependencies);
     }
   });
-  return [].concat.apply([], json);
+  return _.without([].concat.apply([], json), undefined);
 };
 
 module.exports = getDependencies;

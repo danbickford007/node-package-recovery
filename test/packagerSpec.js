@@ -22,12 +22,4 @@ describe('packager', () => {
       })
     })
   })
-
-  // describe('fullDeps', () => {
-  //   it('returns data', () => {
-  //     return packager.fullDeps().then((data) => {
-  //       expect(data).to.be.ok
-  //     })
-  //   })
-  // })
 })

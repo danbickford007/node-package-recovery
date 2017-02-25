@@ -26,4 +26,6 @@ Install: `grunt package`
 
 ###### Test
 
-`./node_modules/mocha/bin/mocha test/ --use_strict`
+Run tests within `tests/` directory
+
+`./node_modules/mocha/bin/mocha .

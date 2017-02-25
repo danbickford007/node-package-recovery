@@ -1,6 +1,7 @@
 "use strict"
 
 const fullDeps = require('./fullDeps')
+const _ = require('lodash')
 
 const getDependencies = (dirs) => {
   let json = fullDeps(dirs).map((item, index) => {
@@ -8,7 +9,7 @@ const getDependencies = (dirs) => {
       return Object.keys(item.dependencies)
     }
   })
-  return [].concat.apply([], json)
+  return _.without([].concat.apply([], json), undefined)
 }
 
 module.exports = getDependencies
