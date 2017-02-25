@@ -4,6 +4,8 @@
 
 [![npm package](https://nodei.co/npm/node-package-recovery.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/node-package-recovery)
 
+[GITHUB](https://github.com/danbickford007/node-package-recovery)
+
 Did you `npm install someModule` without the `--save` or didn't commit your new app to git 
 and accidently removed the `package.json` file? This tool is used to generate a `package.json` 
 file from your `node_modules` directory in such scenario.
