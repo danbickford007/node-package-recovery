@@ -26,7 +26,7 @@ file from your `node_modules` directory in such scenario.
 
 `npm install`
 
-`grunt package`
+`grunt`
 
 #### Usage :
 
