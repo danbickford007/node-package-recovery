@@ -48,6 +48,7 @@ switch (command) {
     console.log(Utils.versionCheck())
     break
   default:
+    console.log(Utils.versionCheck())
     console.log('Help:')
     console.log('available commands:')
     console.log('list = list all node modules')
