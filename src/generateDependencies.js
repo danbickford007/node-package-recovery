@@ -9,7 +9,7 @@ const generateDependencies = (packages) => {
         let packageJsonFile = './node_modules/' + dir + '/package.json'
         if (fs.existsSync(packageJsonFile)) {
           let json = JSON.parse(fs.readFileSync(packageJsonFile))
-          let comma = index < packages.length - 1 ? '", \n' : '"\n'
+          let comma = index < packages.length - 1 ? '",\n' : '"\n'
           finalData = finalData + `    "${json.name}": "${json.version}${comma}`
         }
       }
