@@ -23,6 +23,6 @@ switch (command) {
     console.log('Help:')
     console.log('available commands:')
     console.log('list = list all node modules')
-    console.log('write = write a package.nmp.json file')
+    console.log('write = write a package.npr.json file')
     console.log('new = write a new package.json file - will overwrite! = be careful!')
 }
