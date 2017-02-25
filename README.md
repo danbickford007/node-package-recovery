@@ -58,7 +58,7 @@ file from your `node_modules` directory in such scenario.
 
 ##### Dev
 
-Install: `grunt package`
+Install: `grunt`
 
 ###### Test
 
