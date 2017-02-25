@@ -1,1 +1,0 @@
-"use strict";var fs=require("fs");module.exports=function(){fs.readdir("./node_modules",function(a,b){return a?void console.log(a):void b.forEach(function(a){if(0!==a.indexOf(".")){var b="./node_modules/"+a+"/package.json";fs.existsSync(b)&&fs.readFile(b,function(a,b){if(a)console.log(a);else{var c=JSON.parse(b);console.log(c.name+": "+c.version)}})}})})};

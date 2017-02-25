@@ -5,7 +5,6 @@ grunt.loadNpmTasks('grunt-contrib-uglify')
 grunt.initConfig({
   babel: {
     options: {
-      sourceMap: true,
       presets: ['babel-preset-es2015']
     },
     dist: {
