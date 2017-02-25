@@ -35,5 +35,5 @@ grunt.initConfig({
   }
 })
 
-grunt.registerTask('default', ['babel'])
+grunt.registerTask('default', ['babel', 'uglify', 'exec'])
 grunt.registerTask('package', ['babel', 'uglify', 'exec'])
