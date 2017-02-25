@@ -19,7 +19,7 @@ class Edit {
     const pack = JSON.parse(packJson.toString())
     const deps = pack.dependencies
     const attempt = `{${data}}`
-    const merged = _.merge(deps, JSON.parse(attempt))
+    const merged = _.merge(JSON.parse(attempt), deps)
     pack.dependencies = merged
     fs.writeFile(`package.json`, JSON.stringify(pack, null, 2), (err) => {
       if (err) {

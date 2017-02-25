@@ -31,7 +31,7 @@ var Edit = function () {
       var pack = JSON.parse(packJson.toString());
       var deps = pack.dependencies;
       var attempt = '{' + data + '}';
-      var merged = _.merge(deps, JSON.parse(attempt));
+      var merged = _.merge(JSON.parse(attempt), deps);
       pack.dependencies = merged;
       fs.writeFile('package.json', JSON.stringify(pack, null, 2), function (err) {
         if (err) {
