@@ -1,7 +1,7 @@
 {
-  "name": "node_module_recovery",
+  "name": "node_package_recovery",
   "bin": {
-    "nmp": "./dist/app.js"
+    "npr": "./dist/app.js"
   },
   "dependencies": {
     "chai": "^3.5.0",

@@ -1,4 +1,4 @@
-## nmp
+## npr
 
 Did you `npm install someModule` without the `--save` or didn't commit your new app to git 
 and accidently removed the `package.json` file? This tool is used to generate a `package.json` 
@@ -18,11 +18,11 @@ file from your `node_modules` directory in such scenario.
 
 ###### list all modules and versions
 
-`nmp list`
+`npr list`
 
-###### create a `package.nmp.json` file
+###### create a `package.npr.json` file
 
-`nmp write`
+`npr write`
 
 ##### Dev
 
@@ -32,4 +32,4 @@ Install: `grunt package`
 
 Run tests within `tests/` directory
 
-`./node_modules/mocha/bin/mocha .
+`./../node_modules/mocha/bin/mocha .
