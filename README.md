@@ -14,7 +14,7 @@ file from your `node_modules` directory in such scenario.
 [list -l --list] = list all node modules
 [edit -e] = recreate the dependencies in package.json
 [write -w] = write a package.npr.json file
-[new -n] = write a new package.json file - will overwrite! = be careful!
+[new -n] = write a new package.json file
 ```
 
 #### Install:
