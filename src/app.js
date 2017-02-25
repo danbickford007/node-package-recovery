@@ -3,8 +3,7 @@
 const lister = require('./lister')
 const Write = require('./write')
 const Edit = require('./edit')
-
-console.log('Checking node_modules: ')
+const Utils = require('./utils')
 
 let command = process.argv[2]
 
@@ -23,6 +22,12 @@ switch (command) {
   case 'edit':
     let edit = new Edit('')
     edit.start()
+    break
+  case '--version':
+    console.log(Utils.versionCheck())
+    break
+  case '-v':
+    console.log(Utils.versionCheck())
     break
   default:
     console.log('Help:')
