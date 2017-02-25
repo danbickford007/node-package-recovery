@@ -3,7 +3,7 @@ const packager = require('./packager')
 
 class Write {
 
-  constructor (modifier = '.smp') {
+  constructor (modifier = '.npr') {
     this.modifier = modifier
     this.data = ''
   }
