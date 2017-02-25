@@ -14,7 +14,9 @@ file from your `node_modules` directory in such scenario.
 
 ###### NPM
 
-`npm install node-package-recovery`
+** Make sure you install with `-g` flag 
+
+`npm install node-package-recovery -g`
 
 ###### From source
 
