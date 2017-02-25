@@ -9,8 +9,11 @@ var packager = require('./packager');
 
 var Write = function () {
   function Write() {
+    var modifier = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '.smp';
+
     _classCallCheck(this, Write);
 
+    this.modifier = modifier;
     this.data = '';
   }
 
@@ -31,13 +34,15 @@ var Write = function () {
   }, {
     key: 'write',
     value: function write(data) {
+      var _this2 = this;
+
       var content = this.organizeFile(data);
-      fs.writeFile('package.smp.json', content, function (err) {
+      fs.writeFile('package' + this.modifier + '.json', content, function (err) {
         if (err) {
           return console.log(err);
         }
 
-        console.log('package.smp.json was saved!');
+        console.log('package' + _this2.modifier + '.json was saved!');
       });
     }
   }]);

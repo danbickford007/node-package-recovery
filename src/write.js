@@ -3,7 +3,8 @@ const packager = require('./packager')
 
 class Write {
 
-  constructor () {
+  constructor (modifier = '.smp') {
+    this.modifier = modifier
     this.data = ''
   }
 
@@ -23,12 +24,12 @@ ${data}  }
 
   write (data) {
     let content = this.organizeFile(data)
-    fs.writeFile('package.smp.json', content, (err) => {
+    fs.writeFile(`package${this.modifier}.json`, content, (err) => {
       if (err) {
         return console.log(err)
       }
 
-      console.log('package.smp.json was saved!')
+      console.log(`package${this.modifier}.json was saved!`)
     })
   }
 }
