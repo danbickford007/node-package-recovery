@@ -10,6 +10,12 @@ file from your `node_modules` directory in such scenario.
 
 #### Install:
 
+###### NPM
+
+`npm install node-package-recovery`
+
+###### From source
+
 `git clone git@github.com:danbickford007/node_module_recovery.git`
 
 `cd node_module_recovery`
