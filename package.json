@@ -18,7 +18,7 @@
     "grunt-exec": "^1.0.1",
     "load-grunt-tasks": "^3.5.2"
   },
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "Gruntfile.js",
   "scripts": {
     "test": "mocha"
