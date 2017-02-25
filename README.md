@@ -12,13 +12,13 @@ file from your `node_modules` directory in such scenario.
 
 #### Install:
 
-###### NPM
+##### NPM
 
 ** Make sure you install with `-g` flag 
 
 `npm install node-package-recovery -g`
 
-###### From source
+##### From source
 
 `git clone git@github.com:danbickford007/node_module_recovery.git`
 
@@ -30,7 +30,7 @@ file from your `node_modules` directory in such scenario.
 
 #### Usage :
 
-###### list all modules and versions
+##### list all modules and versions
 
 `npr list`
 
@@ -38,29 +38,29 @@ file from your `node_modules` directory in such scenario.
 
 `npr --list`
 
-###### create a `package.npr.json` file
+##### create a `package.npr.json` file
 
 `npr write`
 
 `npr -w`
 
-###### edit your package.json dependencies
+##### edit your package.json dependencies
 
 `npr edit`
 
 `npr -e`
 
-###### create a new package.json file
+##### create a new package.json file
 
 `npr new`
 
 `npr -n`
 
-##### Dev
+### Dev
 
 Install: `grunt`
 
-###### Test
+### Test
 
 Run tests within `tests/` directory
 
