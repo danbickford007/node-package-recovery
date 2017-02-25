@@ -23,15 +23,32 @@ ${data}  }
 }`
   }
 
-  write (data) {
-    let content = this.organizeFile(data)
-    fs.writeFile(`package${this.modifier}.json`, content, (err) => {
+  continueWrite (path, content) {
+    fs.writeFile(path, content, (err) => {
       if (err) {
         return console.log(err)
       }
-
-      console.log(`package${this.modifier}.json was saved!`)
+      console.log(`${path} was saved!`)
+      process.exit()
     })
+  }
+
+  write (data) {
+    let content = this.organizeFile(data)
+    let path = `package${this.modifier}.json`
+    if (fs.existsSync(path)) {
+      console.log('File already exists, overwrite it? Type Y to continue')
+      process.stdin.on('data', (input) => {
+        if (input.toString() === 'Y\n') {
+          this.continueWrite(path, content)
+        } else {
+          console.log('Exiting...')
+          process.exit()
+        }
+      })
+    } else {
+      this.continueWrite(path, content)
+    }
   }
 }
 
