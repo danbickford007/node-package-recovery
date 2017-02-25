@@ -11,16 +11,34 @@ switch (command) {
   case 'list':
     lister()
     break
+  case '-l':
+    lister()
+    break
+  case '--list':
+    lister()
+    break
   case 'write':
     let write = new Write()
+    write.start()
+    break
+  case '-w':
+    write = new Write()
     write.start()
     break
   case 'new':
     let writeNew = new Write('')
     writeNew.start()
     break
+  case '-n':
+    writeNew = new Write('')
+    writeNew.start()
+    break
   case 'edit':
     let edit = new Edit('')
+    edit.start()
+    break
+  case '-e':
+    edit = new Edit('')
     edit.start()
     break
   case '--version':
