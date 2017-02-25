@@ -51,8 +51,8 @@ switch (command) {
     console.log(Utils.versionCheck())
     console.log('Help:')
     console.log('available commands:')
-    console.log('list = list all node modules')
-    console.log('edit = recreate the dependencies in package.json')
-    console.log('write = write a package.npr.json file')
-    console.log('new = write a new package.json file - will overwrite! = be careful!')
+    console.log('[list -l --list] = list all node modules')
+    console.log('[edit -e] = recreate the dependencies in package.json')
+    console.log('[write -w] = write a package.npr.json file')
+    console.log('[new -n] = write a new package.json file - will overwrite! = be careful!')
 }
