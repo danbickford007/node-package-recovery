@@ -8,7 +8,11 @@ file from your `node_modules` directory in such scenario.
 
 `git clone git@github.com:danbickford007/node_module_recovery.git`
 
-`cd node_module_recovery && grunt package`
+`cd node_module_recovery`
+
+`npm install`
+
+`grunt package`
 
 #### Usage :
 
