@@ -1,7 +1,7 @@
 "use strict"
 const fs = require('fs')
 
-let Write = require('./../src/Write'),
+let Write = require('./../src/write'),
   chai = require('chai'),
   expect = chai.expect
 
