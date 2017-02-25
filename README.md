@@ -10,6 +10,13 @@ Did you `npm install someModule` without the `--save` or didn't commit your new 
 and accidently removed the `package.json` file? This tool is used to generate a `package.json` 
 file from your `node_modules` directory in such scenario.
 
+```
+[list -l --list] = list all node modules
+[edit -e] = recreate the dependencies in package.json
+[write -w] = write a package.npr.json file
+[new -n] = write a new package.json file - will overwrite! = be careful!
+```
+
 #### Install:
 
 ##### NPM
