@@ -29,14 +29,23 @@ file from your `node_modules` directory in such scenario.
 ###### list all modules and versions
 
 `npr list`
+`npr -l`
+`npr --list`
 
 ###### create a `package.npr.json` file
 
 `npr write`
+`npr -w`
 
 ###### edit your package.json dependencies
 
 `npr edit`
+`npr -e`
+
+###### create a new package.json file
+
+`npr new`
+`npr -n`
 
 ##### Dev
 
