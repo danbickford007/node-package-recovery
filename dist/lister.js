@@ -1,1 +1,1 @@
-"use strict";var packager=require("./packager");module.exports=function(){console.log("Available modules: \n"),packager().then(function(a){console.log(a)})};
+"use strict";var packager=require("./packager");module.exports=function(){console.log("Available modules: \n"),packager().then(function(a){console.log(a)},function(a){console.log("An error has occured:"),console.log(a)})};
