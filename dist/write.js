@@ -29,7 +29,7 @@ var Write = function () {
   }, {
     key: 'organizeFile',
     value: function organizeFile(data) {
-      return '{\n  "name": "' + process.cwd().split('/').pop() + '",\n  "dependencies":{\n' + data + '  }\n}';
+      return '{\n  "name": "' + process.cwd().split('/').pop() + '",\n  "version": "0.0.1",\n  "dependencies":{\n' + data + '  }\n}';
     }
   }, {
     key: 'write',

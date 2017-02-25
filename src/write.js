@@ -17,6 +17,7 @@ class Write {
   organizeFile (data) {
     return `{
   "name": "${process.cwd().split('/').pop()}",
+  "version": "0.0.1",
   "dependencies":{
 ${data}  }
 }`
