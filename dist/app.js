@@ -3,6 +3,7 @@
 
 var lister = require('./lister');
 var Write = require('./write');
+var Edit = require('./edit');
 
 console.log('Checking node_modules: ');
 
@@ -20,11 +21,16 @@ switch (command) {
     var writeNew = new Write('');
     writeNew.start();
     break;
+  case 'edit':
+    var edit = new Edit('');
+    edit.start();
+    break;
   default:
     console.log('Help:');
     console.log('available commands:');
     console.log('list = list all node modules');
-    console.log('write = write a package.nmp.json file');
+    console.log('edit = recreate the dependencies in package.json');
+    console.log('write = write a package.npr.json file');
     console.log('new = write a new package.json file - will overwrite! = be careful!');
 }
 //# sourceMappingURL=app.js.map

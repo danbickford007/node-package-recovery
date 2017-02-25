@@ -6,49 +6,45 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var fs = require('fs');
 var packager = require('./packager');
+var _ = require('lodash');
 
-var Write = function () {
-  function Write() {
-    var modifier = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '.npr';
+var Edit = function () {
+  function Edit() {
+    _classCallCheck(this, Edit);
 
-    _classCallCheck(this, Write);
-
-    this.modifier = modifier;
     this.data = '';
   }
 
-  _createClass(Write, [{
+  _createClass(Edit, [{
     key: 'start',
     value: function start() {
       var _this = this;
 
       packager().then(function (data) {
-        _this.write(data);
+        _this.edit(data);
       });
     }
   }, {
-    key: 'organizeFile',
-    value: function organizeFile(data) {
-      return '{\n  "name": "' + process.cwd().split('/').pop() + '",\n  "version": "0.0.1",\n  "dependencies":{\n' + data + '  }\n}';
-    }
-  }, {
-    key: 'write',
-    value: function write(data) {
-      var _this2 = this;
-
-      var content = this.organizeFile(data);
-      fs.writeFile('package' + this.modifier + '.json', content, function (err) {
+    key: 'edit',
+    value: function edit(data) {
+      var packJson = fs.readFileSync('package.json');
+      var pack = JSON.parse(packJson.toString());
+      var deps = pack.dependencies;
+      var attempt = '{' + data + '}';
+      var merged = _.merge(deps, JSON.parse(attempt));
+      pack.dependencies = merged;
+      fs.writeFile('package.json', JSON.stringify(pack, null, 2), function (err) {
         if (err) {
           return console.log(err);
         }
 
-        console.log('package' + _this2.modifier + '.json was saved!');
+        console.log('package.json dependencies was edited!');
       });
     }
   }]);
 
-  return Write;
+  return Edit;
 }();
 
-module.exports = Write;
-//# sourceMappingURL=write.js.map
+module.exports = Edit;
+//# sourceMappingURL=edit.js.map
