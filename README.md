@@ -1,7 +1,7 @@
 ## nmp
 
 Did you `npm install someModule` without the `--save` or didn't commit your new app to git 
-and accidently removed the `package.json` file? This tool is used to generate a `package.json` 
+and accidently removed the `package.json` file? This tool is used to generate a basic `package.json` 
 file from your `node_modules` directory in such scenario.
 
 #### Install:
